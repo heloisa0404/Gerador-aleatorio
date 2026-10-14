@@ -1,83 +1,106 @@
+
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Persona | Gerador de Personagens</title>
-
+  <meta name="theme-color" content="#0b0912">
+  <meta name="description" content="Descubra sua próxima música com o SonicShuffle.">
+  <title>SonicShuffle | Descubra sua próxima música</title>
   <link rel="stylesheet" href="style.css">
-
+  <script src="script.js" defer></script>
 </head>
-
 <body>
+  <header class="topbar">
+    <a class="logo" href="#" aria-label="SonicShuffle início">
+      <span class="logo-icon">♫</span>
+      Sonic<span>Shuffle</span>
+    </a>
+    <span class="status"><span class="status-dot"></span> SEU PRÓXIMO SOM</span>
+  </header>
 
-  <header><span>✦</span> PERSONA <small>CHARACTER GENERATOR</small></header>
-
-  <main>
-
-    <section class="intro">
-
-      <p>EXPLORE NOVAS POSSIBILIDADES</p>
-
-      <h1>Quem você vai descobrir?</h1>
-
-      <span>Cada combinação cria uma nova história.</span>
-
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">✦ SEU NOVO VÍCIO MUSICAL</span>
+      <h1>Seu próximo som<br>está a <span>um clique.</span></h1>
+      <p>Descubra músicas, explore novos ritmos e encontre sua próxima favorita.</p>
     </section>
 
-    <section class="card">
-
-      <div class="portrait" id="portrait">✦</div>
-
-      <div class="info">
-
-        <span class="tag" id="estilo">AGUARDANDO GERAÇÃO</span>
-
-        <h2 id="nome">Seu próximo personagem</h2>
-
-        <p class="frase" id="frase">Sua próxima história começa aqui.</p>
-
-        <div class="details">
-
-          <p>Personalidade <b id="personalidade">—</b></p>
-
-          <p>Poder especial <b id="poder">—</b></p>
-
-          <p>Cor favorita <b id="cor">—</b></p>
-
+    <section class="generator">
+      <div class="section-heading">
+        <div>
+          <span class="mini-label">PERSONALIZE SUA DESCOBERTA</span>
+          <h2>Qual é a sua vibe?</h2>
         </div>
-
-        <button id="gerar">✧ &nbsp; Gerar personagem</button>
-
-        <button id="favoritar" class="outline">♡ &nbsp; Salvar favorito</button>
-
-        <p id="aviso"></p>
-
+        <span class="head-icon">♫</span>
       </div>
 
+      <label for="genre">ESCOLHA UM GÊNERO</label>
+      <select id="genre">
+        <option value="todos">🎧 Todos os estilos</option>
+        <option value="pop">✨ Pop</option>
+        <option value="rock">🎸 Rock</option>
+        <option value="rap">🎤 Rap / Hip-hop</option>
+        <option value="funk">🇧🇷 Funk brasileiro</option>
+        <option value="sertanejo">🤠 Sertanejo</option>
+        <option value="eletronica">⚡ Eletrônica</option>
+        <option value="indie">🌙 Indie</option>
+      </select>
+
+      <button id="shuffleBtn" class="shuffle-btn">
+        <span>⤨</span> Descobrir música
+      </button>
+      <p class="hint">✦ Uma nova descoberta espera por você</p>
     </section>
 
-    <section class="bottom">
+    <section class="result-section" aria-live="polite">
+      <div class="section-heading result-heading">
+        <div>
+          <span class="mini-label">SELECIONADA PARA VOCÊ</span>
+          <h2>Sua descoberta</h2>
+        </div>
+        <span class="result-number" id="resultNumber">#00</span>
+      </div>
 
-      <h3>Seus favoritos <span id="total">0</span></h3>
+      <article class="music-card" id="musicCard">
+        <div class="album-art" id="albumArt">
+          <span class="art-orbit orbit-one"></span>
+          <span class="art-orbit orbit-two"></span>
+          <span class="art-note">♫</span>
+          <span class="art-caption">SONIC<br>SHUFFLE</span>
+        </div>
 
-      <div id="favoritos">Seus personagens salvos aparecerão aqui.</div>
-
-      <p id="contador">0 personagens descobertos</p>
-
+        <div class="music-info">
+          <span class="music-tag" id="musicGenre">PRONTO PARA DESCOBRIR</span>
+          <h3 id="musicTitle">Sua próxima música</h3>
+          <p id="musicArtist">Clique no botão para começar.</p>
+          <div class="music-actions">
+            <a id="listenBtn"
+               class="listen-btn"
+               href="https://open.spotify.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+              ♫ Ouvir música <span>↗</span>
+            </a>
+            <button id="againBtn" class="again-btn" aria-label="Sortear outra música" title="Sortear outra">
+              ⤨
+            </button>
+          </div>
+        </div>
+      </article>
+      <p class="footnote">As músicas são sorteadas aleatoriamente. O link abre uma busca no Spotify.</p>
     </section>
 
+    <section class="stats">
+      <div><strong id="totalSongs">30</strong><span>músicas cadastradas</span></div>
+      <div><strong id="totalGenres">7</strong><span>gêneros musicais</span></div>
+      <div><strong id="totalDraws">0</strong><span>descobertas feitas</span></div>
+    </section>
   </main>
 
-  <footer>PERSONA © 2026 — Criado com imaginação.</footer>
-
-  <script src="script.js"></script>
-
+  <footer>
+    <p>Feito com ♡, HTML, CSS e JavaScript.</p>
+    <span>SONICSHUFFLE © 2026</span>
+  </footer>
 </body>
-
 </html>
