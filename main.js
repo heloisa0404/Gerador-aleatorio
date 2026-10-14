@@ -1,80 +1,124 @@
-const personagens = [
-  {
-    nome: "Seraphine", estilo: "AVENTUREIRA",
-    personalidade: "Determinada e curiosa",
-    poder: "Manipular elementos", cor: "Azul escuro",
-    frase: "Ela encontra possibilidades onde todos veem o caos.",
-    imagem: "photo-1534528741775-53994a69daeb"
-  },
-  {
-    nome: "Kael", estilo: "MAGO",
-    personalidade: "Reservado e inteligente",
-    poder: "Ler pensamentos", cor: "Violeta",
-    frase: "Seus maiores segredos estão além do olhar.",
-    imagem: "photo-1500648767791-00dcc994a43e"
-  },
-  {
-    nome: "Elys", estilo: "EXPLORADORA",
-    personalidade: "Livre e criativa",
-    poder: "Teletransporte", cor: "Prata",
-    frase: "Nenhum horizonte é distante demais para ela.",
-    imagem: "photo-1524504388940-b1c1722653e1"
-  },
-  {
-    nome: "Darian", estilo: "GUARDIÃO",
-    personalidade: "Leal e corajoso",
-    poder: "Controlar o tempo", cor: "Preto",
-    frase: "Ele protege aquilo que o mundo esquece.",
-    imagem: "photo-1506794778202-cad84cf45f1d"
-  }
+const musicas = [
+  { titulo: "Blinding Lights", artista: "The Weeknd", genero: "pop", cor: "linear-gradient(145deg,#6b1749,#f34d83)" },
+  { titulo: "Levitating", artista: "Dua Lipa", genero: "pop", cor: "linear-gradient(145deg,#a72c9c,#ff9a63)" },
+  { titulo: "As It Was", artista: "Harry Styles", genero: "pop", cor: "linear-gradient(145deg,#b44a57,#edb66e)" },
+  { titulo: "Espresso", artista: "Sabrina Carpenter", genero: "pop", cor: "linear-gradient(145deg,#70412c,#e4a17a)" },
+  { titulo: "Bad Romance", artista: "Lady Gaga", genero: "pop", cor: "linear-gradient(145deg,#651a36,#dc496c)" },
+
+  { titulo: "Do I Wanna Know?", artista: "Arctic Monkeys", genero: "rock", cor: "linear-gradient(145deg,#171717,#6a6a6a)" },
+  { titulo: "Smells Like Teen Spirit", artista: "Nirvana", genero: "rock", cor: "linear-gradient(145deg,#204b52,#77a9a4)" },
+  { titulo: "Bohemian Rhapsody", artista: "Queen", genero: "rock", cor: "linear-gradient(145deg,#452b69,#d6a4ff)" },
+  { titulo: "Seven Nation Army", artista: "The White Stripes", genero: "rock", cor: "linear-gradient(145deg,#151515,#b92e35)" },
+  { titulo: "Californication", artista: "Red Hot Chili Peppers", genero: "rock", cor: "linear-gradient(145deg,#8c3727,#e8a05a)" },
+
+  { titulo: "The Box", artista: "Roddy Ricch", genero: "rap", cor: "linear-gradient(145deg,#173d56,#6488d9)" },
+  { titulo: "Lose Yourself", artista: "Eminem", genero: "rap", cor: "linear-gradient(145deg,#262626,#797979)" },
+  { titulo: "God's Plan", artista: "Drake", genero: "rap", cor: "linear-gradient(145deg,#66552c,#d7b766)" },
+  { titulo: "SICKO MODE", artista: "Travis Scott", genero: "rap", cor: "linear-gradient(145deg,#43215e,#e065a0)" },
+  { titulo: "HUMBLE.", artista: "Kendrick Lamar", genero: "rap", cor: "linear-gradient(145deg,#344c35,#a6bc6b)" },
+
+  { titulo: "Bum Bum Tam Tam", artista: "MC Fioti", genero: "funk", cor: "linear-gradient(145deg,#154e9a,#54c9f1)" },
+  { titulo: "Tá OK", artista: "DENNIS e Kevin O Chris", genero: "funk", cor: "linear-gradient(145deg,#802eaf,#ef77bd)" },
+  { titulo: " envolvimento".trim(), artista: "MC Loma e as Gêmeas Lacração", genero: "funk", cor: "linear-gradient(145deg,#b4497a,#f8a5c7)" },
+  { titulo: "Parado no Bailão", artista: "MC L da Vinte e MC Gury", genero: "funk", cor: "linear-gradient(145deg,#7a311e,#ef9951)" },
+  { titulo: "Vai Malandra", artista: "Anitta", genero: "funk", cor: "linear-gradient(145deg,#bb4b27,#f2b85b)" },
+
+  { titulo: "Erro Gostoso", artista: "Simone Mendes", genero: "sertanejo", cor: "linear-gradient(145deg,#754b29,#dfb777)" },
+  { titulo: "Infiel", artista: "Marília Mendonça", genero: "sertanejo", cor: "linear-gradient(145deg,#613b55,#d59ab9)" },
+  { titulo: "Nosso Quadro", artista: "Ana Castela", genero: "sertanejo", cor: "linear-gradient(145deg,#486b45,#b6d38a)" },
+  { titulo: "Atrasadinha", artista: "Felipe Araújo e Ferrugem", genero: "sertanejo", cor: "linear-gradient(145deg,#825e3e,#e2b78c)" },
+
+  { titulo: "Titanium", artista: "David Guetta ft. Sia", genero: "eletronica", cor: "linear-gradient(145deg,#154b9a,#54d6f1)" },
+  { titulo: "Animals", artista: "Martin Garrix", genero: "eletronica", cor: "linear-gradient(145deg,#35146c,#b26aff)" },
+  { titulo: "Wake Me Up", artista: "Avicii", genero: "eletronica", cor: "linear-gradient(145deg,#a65b28,#f2cb72)" },
+
+  { titulo: "Sweater Weather", artista: "The Neighbourhood", genero: "indie", cor: "linear-gradient(145deg,#243e4b,#8aafb8)" },
+  { titulo: "505", artista: "Arctic Monkeys", genero: "indie", cor: "linear-gradient(145deg,#353050,#a69bdb)" },
+  { titulo: "The Less I Know The Better", artista: "Tame Impala", genero: "indie", cor: "linear-gradient(145deg,#6d236c,#e78fc8)" }
 ];
 
-let atual = null;
-let quantidade = 0;
-let favoritos = [];
+const generoSelect = document.getElementById("genre");
+const shuffleBtn = document.getElementById("shuffleBtn");
+const againBtn = document.getElementById("againBtn");
 
-function gerar() {
-  atual = personagens[Math.floor(Math.random() * personagens.length)];
+const tituloEl = document.getElementById("musicTitle");
+const artistaEl = document.getElementById("musicArtist");
+const generoEl = document.getElementById("musicGenre");
+const albumArt = document.getElementById("albumArt");
+const listenBtn = document.getElementById("listenBtn");
+const resultNumber = document.getElementById("resultNumber");
 
-  document.getElementById("nome").textContent = atual.nome;
-  document.getElementById("estilo").textContent = atual.estilo;
-  document.getElementById("personalidade").textContent = atual.personalidade;
-  document.getElementById("poder").textContent = atual.poder;
-  document.getElementById("cor").textContent = atual.cor;
-  document.getElementById("frase").textContent = "“" + atual.frase + "”";
+const totalSongs = document.getElementById("totalSongs");
+const totalGenres = document.getElementById("totalGenres");
+const totalDraws = document.getElementById("totalDraws");
 
-  const retrato = document.getElementById("portrait");
-  retrato.style.backgroundImage =
-    `url(https://images.unsplash.com/${atual.imagem}?auto=format&fit=crop&w=700&q=80)`;
-  retrato.textContent = "";
+let ultimaMusica = null;
+let sorteios = 0;
 
-  quantidade++;
-  document.getElementById("contador").textContent =
-    quantidade + " personagens descobertos";
-  document.getElementById("aviso").textContent = "";
-}
+const nomesGeneros = {
+  pop: "POP",
+  rock: "ROCK",
+  rap: "RAP / HIP-HOP",
+  funk: "FUNK BRASILEIRO",
+  sertanejo: "SERTANEJO",
+  eletronica: "ELETRÔNICA",
+  indie: "INDIE"
+};
 
-function favoritar() {
-  if (!atual) {
-    document.getElementById("aviso").textContent =
-      "Gere um personagem primeiro.";
+function sortearMusica() {
+  const generoEscolhido = generoSelect.value;
+
+  const disponiveis = musicas.filter(musica => {
+    return generoEscolhido === "todos" ||
+           musica.genero === generoEscolhido;
+  });
+
+  if (disponiveis.length === 0) {
+    tituloEl.textContent = "Nenhuma música encontrada";
+    artistaEl.textContent = "Escolha outro gênero.";
     return;
   }
 
-  if (favoritos.some(p => p.nome === atual.nome)) {
-    document.getElementById("aviso").textContent =
-      "Esse personagem já está nos favoritos.";
-    return;
+  // Evita repetir a música anterior quando há outras opções.
+  let opcoes = disponiveis.filter(musica => musica !== ultimaMusica);
+
+  if (opcoes.length === 0) {
+    opcoes = disponiveis;
   }
 
-  favoritos.push(atual);
+  const indice = Math.floor(Math.random() * opcoes.length);
+  const musica = opcoes[indice];
 
-  document.getElementById("favoritos").textContent =
-    favoritos.map(p => p.nome + " — " + p.estilo).join("  |  ");
+  ultimaMusica = musica;
+  sorteios++;
 
-  document.getElementById("total").textContent = favoritos.length;
-  document.getElementById("aviso").textContent = "Favorito salvo!";
+  tituloEl.textContent = musica.titulo;
+  artistaEl.textContent = musica.artista;
+  generoEl.textContent = nomesGeneros[musica.genero];
+  albumArt.style.background = musica.cor;
+
+  // Cria um link de busca sem precisar de uma API.
+  const busca = encodeURIComponent(
+    musica.titulo + " " + musica.artista
+  );
+
+  listenBtn.href = "https://open.spotify.com/search/" + busca;
+
+  resultNumber.textContent = "#" + String(sorteios).padStart(2, "0");
+  totalDraws.textContent = sorteios;
+
+  // Reinicia a animação do cartão.
+  const card = document.getElementById("musicCard");
+  card.style.animation = "none";
+  void card.offsetWidth;
+  card.style.animation = "appear .35s ease";
 }
 
-document.getElementById("gerar").addEventListener("click", gerar);
-document.getElementById("favoritar").addEventListener("click", favoritar);
+shuffleBtn.addEventListener("click", sortearMusica);
+againBtn.addEventListener("click", sortearMusica);
+
+totalSongs.textContent = musicas.length;
+totalGenres.textContent = Object.keys(nomesGeneros).length;
+
+// Já apresenta uma música quando o site é aberto.
+sortearMusica();
